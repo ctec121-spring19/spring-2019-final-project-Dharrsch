@@ -1,0 +1,71 @@
+﻿David Harrsch
+
+I had most of this in a table like in the example on the canvas page. 
+It did not translate well when saved as  a .txt 
+I also had a model of a graphics window that I was thinking of using in here but that did not sow up in the .txt
+
+
+
+	Start program
+		Empty grid 
+		Tell player 1 to make the first move
+
+
+P1 clicks on square on grid
+		Draw X
+	Test to see if square is full
+	Test to see if game is won
+	Test to see if game board is full
+	Switch players
+
+
+P2 clicks on square
+	draw O
+	Test to see if square is full
+	Test to see if game is won
+	Test to see if game board is full
+	Switch players
+
+
+	Repeat process until draw or winner is selected
+	Perform tests and switch players if pass all tests
+	Player picks full square
+	If square is full tell player to pick again
+
+
+
+
+	Player gets 3 in a row
+	If game is won tell player the winner  and close program
+
+
+
+
+	Player picks last open spot
+	If board is full w/ no winner, tell players it's a draw and close program
+	
+
+	
+
+	View
+        Draw window and grid
+                  
+Window 0,0 to 3,5
+Game board 0,0 to 3,3
+        Rectangle to 
+        Draw X and O
+        Text Box with instructions
+                Next player
+                Out of bounds
+                Spot filled
+                Tie or win
+                Play again 
+        
+Model
+        Test to see if square is full
+Test to see if game is won
+Test to see if game board is full
+Switch players
+
+
+Controller

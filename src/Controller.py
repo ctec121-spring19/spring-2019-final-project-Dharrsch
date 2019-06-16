@@ -19,11 +19,13 @@ class Controller:
 
     def __init__(self):
         self.m=Model()
+        
 
     def playgame(self):
         while True:
             self.m.valid()
-            self.m.Lobjects()
+            
+
             
 
 def ControllerTest():

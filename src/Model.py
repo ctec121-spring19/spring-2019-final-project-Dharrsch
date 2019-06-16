@@ -9,30 +9,27 @@ class Model:
     def __init__(self):
         self.v=View()
         self.validity=[0,0,0,0,0,0,0,0,0,1,1,1]
-        self.Cplayer='X'
-        
+        self.Cplayer= 'X'
 
     def valid(self):
-        cpos=self.v.cellnumber()
-
-
-        if self.validity[cpos] == 1:
-            print("invalid")
-
-        elif self.validity[cpos] == 0:
-            self.validity[cpos]=1
-            
-            if self.Cplayer == 'X':
-                self.v.drawX(cpos)
-                self.Cplayer = 'O'
+        
+        while True:
+            cpos=self.v.cellnumber()
+            if  self.validity[cpos] == 0:
+                move= "valid"
+                self.validity[cpos]=1
+                if self.Cplayer == 'X':
+                    self.v.drawX(cpos)
+                    self.Cplayer = 'O'
+                else:
+                    self.v.drawO(cpos)
+                    self.Cplayer = 'X'
+                break
             else:
-                self.v.drawO(cpos)
-                self.Cplayer = 'X'
-            
+                self.validity[cpos] == 1
+                move = "invalid"
+            print(move)
             print(self.validity)
-            print("valid")
-        else:
-            print("something is wrong")
 
 
     def Lobjects(self):
@@ -47,6 +44,7 @@ class Model:
         '''
 def ModelTest():
     m=Model()
+
     m.valid()
     input()
 if __name__ == "__main__":

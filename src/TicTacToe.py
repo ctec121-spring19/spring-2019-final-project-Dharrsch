@@ -2,9 +2,9 @@
 #
 # 
 
-import Controller
+from Controller import Controller
 
 def main():
-    controller=Controller
+    controller=Controller()
     controller.playgame()
 main()

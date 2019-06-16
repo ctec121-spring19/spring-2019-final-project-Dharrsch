@@ -7,18 +7,47 @@ from View import View
 class Model:
 
     def __init__(self):
-        v=View()
+        self.v=View()
         self.validity=[0,0,0,0,0,0,0,0,0,1,1,1]
-'''
-valid move at 0 invalid at 1
-'''
-    def valid(self):
-        self.validity[self.View.Cell()]=1
-        print(self.validity)
+        self.Cplayer='X'
+        
 
+    def valid(self):
+        cpos=self.v.cellnumber()
+
+
+        if self.validity[cpos] == 1:
+            print("invalid")
+
+        elif self.validity[cpos] == 0:
+            self.validity[cpos]=1
+            
+            if self.Cplayer == 'X':
+                self.v.drawX(cpos)
+                self.Cplayer = 'O'
+            else:
+                self.v.drawO(cpos)
+                self.Cplayer = 'X'
+            
+            print(self.validity)
+            print("valid")
+        else:
+            print("something is wrong")
+
+
+    def Lobjects(self):
+        objectList=[]
+        cellnum=self.v.cellnumber()
+        objectList.insert(cellnum,self.Cplayer)
+        print(objectList)
+        '''
+        for obj in objectList:
+            obj.undraw()
+        objectList.clear()
+        '''
 def ModelTest():
     m=Model()
     m.valid()
-
+    input()
 if __name__ == "__main__":
     ModelTest()

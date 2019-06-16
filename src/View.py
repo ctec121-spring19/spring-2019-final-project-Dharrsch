@@ -13,37 +13,38 @@ class View:
         Line(Point(2,0), Point(2,3)).draw(self.win)
         Line(Point(0,1), Point(3,1)).draw(self.win)
         Line(Point(0,2), Point(3,2)).draw(self.win)
-        p=self.win.getMouse()
-        self.cellNum=int(p.getY())*3+int(p.getX())
-        self.objectList=[]
         
-    def dobjects(self):
-        for obj in objectList:
-            obj.undraw()
-        objectList.clear()
+        
+
+    def cellnumber(self):
+        p=self.win.getMouse()
+        xcoord=p.getX()
+        ycoord=p.getY()
+        cellNum=int(p.getY())*3+int(p.getX())
+        return cellNum
 
 
-    def drawO(self):
-        x=(self.cellNum%3)+.5
-        y=(self.cellNum//3)+.5
-        h=Point(x,y)
-        circ=Circle(h,.3).draw(self.win)
-        circ.setFill("red")
+    def drawO(self,cellNum):
+        x=(cellNum%3)+.5
+        y=(cellNum//3)+.5
+        Text(Point(x,y),"O").draw(self.win)
     
-    def drawX(self):
-        x=(self.cellNum%3)+.5
-        y=(self.cellNum//3)+.5
-        h=Point(x,y)
-        circ=Circle(h,.3).draw(self.win)
-        circ.setFill("black")
+    def drawX(self,cellNum):
+        x=(cellNum%3)+.5
+        y=(cellNum//3)+.5
+        Text(Point(x,y),"X").draw(self.win)
         
     def message(self,words):
         mess=Text(Point(1.5,3.5),words).draw(self.win)
+
 def ViewTest():
     v=View()
-    v.drawO()
-    v.drawX()
-    v.Cell()
+    c=v.cellnumber()
+    v.drawO(c)
+    v.message('')
+    
+    
+    
 
 if __name__ == "__main__":
     ViewTest()
